@@ -27,6 +27,11 @@ class TestCloseToZeros(unittest.TestCase):
         res = closestToZero(arr)
         self.assertEqual(res, 1)
 
+    def test_functionArraySizeNotEqualNumReturnsPos(self):
+        arr = [-1, 1]
+        res = closestToZero(arr)
+        self.assertNotEqual(res, -1)
+
     def test_functionArraySizeThreeEqualNum(self):
         arr = [-1, 1, 0]
         res = closestToZero(arr)
