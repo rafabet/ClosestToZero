@@ -9,13 +9,6 @@ def closestToZero(arr = None):
         return reduce(lambda x, y: x if abs(y) > abs(x) else y, arr)
 
 
-def computeGoodSign(num, abs_num):
-    if num < 0:
-        return -1 * abs_num
-    else:
-        return abs_num
-
-
 if __name__ == "__main__":
     arr = []
 
