@@ -1,4 +1,4 @@
-
+from functools import reduce
 
 def closestToZero(arr = None):
     if not arr:
@@ -6,16 +6,8 @@ def closestToZero(arr = None):
     elif len(arr) == 1:
         return arr[0]
     else:
-        index = int(len(arr)/2)
-        resFirst = closestToZero(arr[:index])
-        resSecond = closestToZero(arr[index:])
-        abs_res = min(abs(resFirst), abs(resSecond))
-        if abs_res == abs(resFirst) and abs_res != abs(resSecond):
-            return computeGoodSign(resFirst, abs_res)
-        elif abs_res == abs(resSecond) and abs_res != abs(resFirst):
-            return computeGoodSign(resSecond, abs_res)
-        else:
-            return abs_res
+        return reduce(lambda x, y: x if abs(y) > abs(x) else y, arr)
+
 
 def computeGoodSign(num, abs_num):
     if num < 0:
